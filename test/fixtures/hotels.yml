@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: MyString
+  destination_id: 1
+  name: MyString
+  description: MyString
+  string: MyString
+
+two:
+  id: MyString
+  destination_id: 1
+  name: MyString
+  description: MyString
+  string: MyString
