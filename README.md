@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Plan
+
+- hotel controller
+    get all the links and convert the data and save
+- home page and controller
+
