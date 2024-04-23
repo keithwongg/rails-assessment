@@ -39,3 +39,32 @@ if we are collecting data, displaying it in a systematic way, relational is teh 
 
 format, structure and integrity of data is impt.
 
+## main methodology for cleaning and merging data
+combining, do a left join
+why not inner join? some data will be lost
+why not union? duplicate data
+
+some interesting methods:
+- ml
+- fuzzy matching - not a good idea because words that are different could have a close distance - e.g N Korea & S Korea
+
+
+## Considerations
+- keep history of changes
+- show a page of differences and what to keep? 
+- need to find a way to write helper classes that can be tested by iteslf with any type of data source when running the tests
+
+## Assumptions
+### images
+assume that all links are working and we just store the urls
+
+### addresses
+assume that the lat and long are the most accurate, since having those will give the most precise location and can embed google maps and get street addresses from it.
+
+if don't have then fallback to some logic to clean the addresses
+
+### amenities
+take the lowest level amenities,
+don't need to break it down to such a molecular level =
+
+
