@@ -10,24 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_24_064022) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_24_070631) do
   create_table "hotel_images", force: :cascade do |t|
     t.string "url"
     t.string "caption"
-    t.integer "hotel_id"
+    t.integer "hotel_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hotel_id"], name: "index_hotel_images_on_hotel_id"
+    t.index ["hotel_id"], name: "index_hotel_images_on_hotels_id"
   end
 
   create_table "hotels", force: :cascade do |t|
-    t.string "hotel_id"
-    t.integer "destination_id"
+    t.string "ref_id", null: false
+    t.integer "destination_id", null: false
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hotel_id"], name: "index_hotels_on_hotel_id", unique: true
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "long", precision: 10, scale: 6
+    t.string "postal_code"
+    t.string "address"
+    t.integer "hotel_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hotel_id"], name: "index_locations_on_hotels_id"
+  end
+
+  add_foreign_key "hotel_images", "hotels"
+  add_foreign_key "locations", "hotels"
 end
