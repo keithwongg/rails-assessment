@@ -67,4 +67,13 @@ if don't have then fallback to some logic to clean the addresses
 take the lowest level amenities,
 don't need to break it down to such a molecular level =
 
+## how to improve
+would actually move the collection, cleaning and storing of data to another service, do periodic api calls with background jobs
+
+- look into ETL workflows/ pipelines
+
+rails just for serving the data.
+
+
+
 

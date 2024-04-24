@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_23_153700) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_24_064022) do
+  create_table "hotel_images", force: :cascade do |t|
+    t.string "url"
+    t.string "caption"
+    t.integer "hotel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hotel_id"], name: "index_hotel_images_on_hotel_id"
+  end
+
   create_table "hotels", force: :cascade do |t|
     t.string "hotel_id"
     t.integer "destination_id"
     t.string "name"
     t.string "description"
-    t.string "string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["hotel_id"], name: "index_hotels_on_hotel_id", unique: true
