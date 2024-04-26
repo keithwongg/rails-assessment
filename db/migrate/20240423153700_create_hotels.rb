@@ -1,11 +1,11 @@
 class CreateHotels < ActiveRecord::Migration[7.1]
   def change
     create_table :hotels do |t|
-      t.string :hotel_id, unique: true
-      t.integer :destination_id
+      t.string :ref_id, null: false
+      t.integer :destination_id, null: false
       t.string :name
       t.string :description
-      t.has_many :hotel_images
+      t.string :booking_conditions
 
       t.timestamps
     end
