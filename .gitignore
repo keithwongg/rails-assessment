@@ -35,3 +35,6 @@
 /config/master.key
 
 .DS_Store
+
+.byebug_history
+/config/credentials/production.key
