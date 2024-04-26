@@ -1,2 +1,49 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container">
+  <h1>Homepage - Rails Assessment</h1>
+  <%= link_to 'home', root_path, remote: true %>
+</div>
+
+<div class="container border-div">
+  <p>Click the link below to clear all data in the db. Then, click the links in the next section to retrieve data from the source endpoints.</p>
+  <%= link_to 'Clear all data', destroy_path, remote: true %>
+</div>
+
+<div class="container border-div">
+  <p>Click the links here to get data:</p>
+  <div class="customrows">
+    <p><%= @reps %></p>
+    <div class="customcol">
+        <%= link_to 'Get data from PaperFiles', paperFiles_path, remote: true %>
+        <p><%= @paperResp %><p>
+    </div>
+    <div class="customcol">
+        <%= link_to 'Get data from Patagonia', patagonia_path, remote: true %>
+        <p><%= @pataResp %><p>
+    </div>
+    <div class="customcol">
+        <%= link_to 'Get data from Acme', acme_path, remote: true %>
+        <p><%= @acmeResp %><p>
+    </div>
+  </div>
+</div>
+
+<div class="container border-div">
+
+  <p>Search by ids separated by commas: </p>
+
+  <%= form_with(url: '/data', method: 'post', id: 'data-form-hotel', data: { turbo: false }) do |form| %>
+    <%= form.text_field :hotel_ids, value: "iJhz, SjyX" %>
+    <%= form.hidden_field :search_type, value: 'hotel' %>
+    <%= form.submit 'get json by hotel ids' %>
+  <% end %>
+
+  <%= form_with(url: '/data', method: 'post', id: 'data-form-destination', data: { turbo: false }) do |form| %>
+    <%= form.text_field :destination_ids, value: "5432, 1122" %>
+    <%= form.hidden_field :search_type, value: 'destination' %>
+    <%= form.submit 'get json by destination ids' %>
+  <% end %>
+
+  <p>You can test this with Postman as well.</p>
+
+</div>
+
