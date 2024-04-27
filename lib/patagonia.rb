@@ -30,7 +30,7 @@ class Patagonia < BaseParser
     postal = !@data['address'].blank? ? @data['address'][/\d{6}/, 0] : "000000"
     location.set_lat_long_postal_address_if_empty(
       @data['lat'] || 0,
-      @data['long'] || 0,
+      @data['lng'] || 0,
       postal,
       @data['address'] || ""
     )

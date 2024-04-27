@@ -13,6 +13,7 @@ class Location < ApplicationRecord
     end
 
     def set_lat_long_postal_address_if_empty(lat, long, postal, address)
+        byebug
         set_lat_if_empty(lat)
         set_long_if_empty(long)
         set_postal_if_empty(postal)
@@ -33,13 +34,13 @@ class Location < ApplicationRecord
     end
 
     def set_lat_if_empty lat
-        if self.lat.blank?
+        if self.lat == 0.0 || self.lat.blank?
             self.lat = lat
         end
     end
 
     def set_long_if_empty long
-        if self.long.blank?
+        if self.long == 0.0 || self.long.blank?
             self.long = long
         end
     end
